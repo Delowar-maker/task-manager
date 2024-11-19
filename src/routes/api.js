@@ -1,13 +1,9 @@
 const express = require('express');
-// const ProductController = require('../controllers/ProductsController')
+
 const router = express.Router();
+const UserController = require('../controllers/UserController')
 
-
-// router.post("/CreateProduct", ProductController.CreateProduct)
-
-router.get("/", (req, res) => {
-    res.json({ message: "API Working" })
-})
+router.post("/registration", UserController.registration)
 
 
 module.exports = router
