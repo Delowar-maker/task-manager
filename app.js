@@ -28,14 +28,26 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(bodyParser.json())
-let URI = "mongodb://127.0.0.1:27017/task-manager";
-let OPTION = { user: '', pass: '', autoIndex: true };
-mongoose.connect(URI, OPTION)
+// let URI = "mongodb://127.0.0.1:27017/task-manager";
+// let OPTION = { user: '', pass: '', autoIndex: true };
+// mongoose.connect(URI, OPTION)
+//     .then(() => {
+//         console.log("Connection Success");
+//     })
+//     .catch((error) => {
+//         console.error("Connection Error:", error);
+//     });
+const URI = "mongodb+srv://delowar:delowar1239@cluster0.c6tjknn.mongodb.net/task-manager";
+
+
+mongoose.connect(URI, {
+    autoIndex: true
+})
     .then(() => {
-        console.log("Connection Success");
+        console.log('Connected to MongoDB');
     })
     .catch((error) => {
-        console.error("Connection Error:", error);
+        console.error('Error connecting to MongoDB:', error);
     });
 
 app.use("/api/v1", router)
