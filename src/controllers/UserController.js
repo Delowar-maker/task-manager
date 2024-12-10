@@ -9,7 +9,7 @@ exports.registration = (req, res) => {
             res.status(200).json({ status: "ok", data: data })
         })
         .catch(err => {
-            res.status(500).json({ status: "error", data: err })
+            res.status(200).json({ status: "error", data: err })
         })
 }
 
