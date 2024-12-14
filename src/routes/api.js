@@ -13,9 +13,9 @@ router.post("/profileUpdate", AuthVerifyMiddleware, UserController.profileUpdate
 // User Tasks
 router.post("/createTask", AuthVerifyMiddleware, TaskController.createTask)
 router.get("/updateTaskStatus/:id/:status", AuthVerifyMiddleware, TaskController.updateTaskStatus)
-router.post("/listTaskByStatus/:status", AuthVerifyMiddleware, TaskController.listTaskByStatus)
+router.get("/listTaskByStatus/:status", AuthVerifyMiddleware, TaskController.listTaskByStatus)
 router.get("/taskStatusCount", AuthVerifyMiddleware, TaskController.taskStatusCount)
-router.post("/deleteTask/:id", AuthVerifyMiddleware, TaskController.deleteTask)
+router.get("/deleteTask/:id", AuthVerifyMiddleware, TaskController.deleteTask)
 
 
 
