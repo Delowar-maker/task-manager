@@ -27,6 +27,10 @@ const limiter = rateLimit({
 })
 app.use(limiter);
 
+// how to imags size incress 
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb" }));
+
 app.use(bodyParser.json())
 // let URI = "mongodb://127.0.0.1:27017/task-manager";
 // let OPTION = { user: '', pass: '', autoIndex: true };
