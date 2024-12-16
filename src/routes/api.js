@@ -9,6 +9,7 @@ const TaskController = require('../controllers/TaskController');
 router.post("/registration", UserController.registration)
 router.post("/login", UserController.login)
 router.post("/profileUpdate", AuthVerifyMiddleware, UserController.profileUpdate)
+router.get("/profileDetails", AuthVerifyMiddleware, UserController.profileDetails)
 
 // User Tasks
 router.post("/createTask", AuthVerifyMiddleware, TaskController.createTask)

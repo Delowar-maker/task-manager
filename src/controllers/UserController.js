@@ -49,3 +49,19 @@ exports.profileUpdate = (req, res) => {
             res.status(400).json({ status: "fail", data: err });
         });
 };
+
+
+exports.profileDetails = (req, res) => {
+    const email = req.headers['email'];
+    
+    UsersModel.aggregate([
+        { $match: { email: email } },
+        { $project: { _id: 1, email: 1, firstName: 1, lastName: 1, mobile: 1, photo: 1, password: 1 } }
+    ])
+    .then((data) => {
+        res.status(200).json({ status: "success", data: data });
+    })
+    .catch((err) => {
+        res.status(400).json({ status: "fail", data: err });
+    });
+};
